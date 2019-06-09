@@ -1,4 +1,4 @@
-package algorithms.arrays;
+package algorithms.arrays.IsUnique;
 
 public class IsUnique {
     private String testString1 = "This is a string";
@@ -8,14 +8,15 @@ public class IsUnique {
     private String[] testStrings = {testString1, testString2, testString3, testString4};
 
     private boolean isUnique(String testString) {
-        for (int i=0;i<testString.length();i++) {
-            for (int j=0;j<testString.length();j++) {
-                if (i != j) {
-                    if (testString.charAt(i) == testString.charAt(j)) {
-                        return false;
-                    }
-                }
-            }
+        // If the string length is greater than 128, there must be a repeating character
+        if (testString.length() > 128) return false;
+
+        boolean[] char_set = new boolean[128];
+        for (int i = 0; i < testString.length(); i++) {
+            int val = testString.charAt(i);
+            // if our character value map contains a value of true, we've already come across this character
+            if (char_set[val]) return false;
+            char_set[val] = true;
         }
         return true;
     }

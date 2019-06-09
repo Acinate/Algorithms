@@ -1,6 +1,6 @@
 package algorithms;
 
-import algorithms.arrays.IsUnique;
+import algorithms.arrays.IsUnique.IsUnique;
 
 public class Algorithms {
 

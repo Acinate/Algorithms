@@ -1,12 +1,12 @@
 package algorithms;
 
-import algorithms.arrays.IsUnique.IsUnique;
+import algorithms.arrays.CheckPermutation.CheckPermutation;
 
 public class Algorithms {
 
     public static void main(String[] args) {
-        IsUnique isUnique = new IsUnique();
-        isUnique.RunTests();
+        CheckPermutation checkPermutation = new CheckPermutation();
+        checkPermutation.runTests();
     }
 
 }

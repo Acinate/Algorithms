@@ -1,12 +1,12 @@
 package algorithms;
 
-import algorithms.arrays.PalindromePermutation.PalindromePermutation;
+import algorithms.arrays.OneAway.OneAway;
 
 public class Algorithms {
 
     public static void main(String[] args) {
-        PalindromePermutation pal = new PalindromePermutation();
-        pal.runTests();
+        OneAway one = new OneAway();
+        one.runTests();
     }
 
 }

@@ -1,12 +1,12 @@
 package algorithms;
 
-import algorithms.arrays.CheckPermutation.CheckPermutation;
+import algorithms.arrays.PalindromePermutation.PalindromePermutation;
 
 public class Algorithms {
 
     public static void main(String[] args) {
-        CheckPermutation checkPermutation = new CheckPermutation();
-        checkPermutation.runTests();
+        PalindromePermutation pal = new PalindromePermutation();
+        pal.runTests();
     }
 
 }

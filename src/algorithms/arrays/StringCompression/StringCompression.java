@@ -13,14 +13,15 @@ public class StringCompression {
     }
 
     private String CompressString(String str) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         char c = '@'; // assuming that characters range from a - z
         int count = 0;
 
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) != c) {
                 if (count != 0) {
-                    result += c + "" + count;
+                    result.append(c);
+                    result.append(count);
                 }
                 c = str.charAt(i);
                 count = 1;
@@ -28,11 +29,12 @@ public class StringCompression {
                 count++;
             }
             if (i == str.length() - 1) {
-                result += c + "" + count;
+                result.append(c);
+                result.append(count);
             }
         }
 
-        return result;
+        return result.toString();
     }
 
     public void test() {

@@ -1,13 +1,12 @@
 package algorithms;
 
-import algorithms.arrays.OneAway.OneAway;
-import algorithms.arrays.StringCompression.StringCompression;
+import algorithms.arrays.RotateMatrix.RotateMatrix;
 
 public class Algorithms {
 
     public static void main(String[] args) {
-        StringCompression strc = new StringCompression();
-        strc.test();
+        RotateMatrix rm = new RotateMatrix();
+        rm.runTests();
     }
 
 }

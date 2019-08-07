@@ -1,12 +1,13 @@
 package algorithms;
 
 import algorithms.arrays.RotateMatrix.RotateMatrix;
+import algorithms.arrays.ZeroMatrix.ZeroMatrix;
 
 public class Algorithms {
 
     public static void main(String[] args) {
-        RotateMatrix rm = new RotateMatrix();
-        rm.runTests();
+        ZeroMatrix zm = new ZeroMatrix();
+        zm.runTests();
     }
 
 }

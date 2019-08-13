@@ -7,6 +7,10 @@ public class LinkedList {
         head = null;
     }
 
+    public LinkedList(LinkedListNode n) {
+        head = n;
+    }
+
     public LinkedListNode getFirst() {
         return this.head;
     }

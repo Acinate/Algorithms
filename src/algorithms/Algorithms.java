@@ -1,13 +1,12 @@
 package algorithms;
 
-import algorithms.arrays.RotateMatrix.RotateMatrix;
-import algorithms.arrays.ZeroMatrix.ZeroMatrix;
+import algorithms.linked_lists.RemoveDuplicates.RemoveDuplicates;
 
 public class Algorithms {
 
     public static void main(String[] args) {
-        ZeroMatrix zm = new ZeroMatrix();
-        zm.runTests();
+        RemoveDuplicates rd = new RemoveDuplicates();
+        rd.runTests();
     }
 
 }

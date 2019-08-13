@@ -4,11 +4,11 @@ public class LinkedList {
     LinkedListNode head;
 
     public LinkedList() {
-        head = null;
+        this.head = null;
     }
 
     public LinkedList(LinkedListNode n) {
-        head = n;
+        this.head = n;
     }
 
     public LinkedListNode getFirst() {

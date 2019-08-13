@@ -7,6 +7,10 @@ public class LinkedList {
         head = null;
     }
 
+    public LinkedListNode getFirst() {
+        return this.head;
+    }
+
     public void add(int d) {
         LinkedListNode end = new LinkedListNode(d);
         LinkedListNode n = this.head;
@@ -42,7 +46,8 @@ public class LinkedList {
         return head;
     }
 
-    public String myToString() {
+    @Override
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("{");
         LinkedListNode current = this.head;

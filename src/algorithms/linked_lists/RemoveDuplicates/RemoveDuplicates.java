@@ -23,10 +23,26 @@ public class RemoveDuplicates {
         }
     }
 
+    void deleteDuplicatesNoBuffer(LinkedListNode n) {
+        LinkedListNode current = n;
+        while (current != null) {
+            /* Remove all future nodes that have the same value */
+            LinkedListNode runner = current;
+            while (runner.next != null) {
+                if (current.data == runner.next.data) {
+                    runner.next = runner.next.next;
+                } else {
+                    runner = runner.next;
+                }
+            }
+            current = current.next;
+        }
+    }
+
     public void runTests() {
         // Populate list
         list = LinkedListTestData.linkedList1();
-        deleteDuplicates(list.getFirst());
+        deleteDuplicatesNoBuffer(list.getFirst());
         System.out.println(list.toString());
     }
 }

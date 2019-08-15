@@ -22,4 +22,18 @@ public class LinkedListTestData {
         list.addAll(values);
         return list;
     }
+
+    public static LinkedList linkedList3() {
+        int[] values = {7, 1, 6};
+        LinkedList list = new LinkedList();
+        list.addAll(values);
+        return list;
+    }
+
+    public static LinkedList linkedList4() {
+        int[] values = {5, 9, 2};
+        LinkedList list = new LinkedList();
+        list.addAll(values);
+        return list;
+    }
 }

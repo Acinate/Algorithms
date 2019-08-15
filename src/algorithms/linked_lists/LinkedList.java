@@ -15,6 +15,10 @@ public class LinkedList {
         return this.head;
     }
 
+    public void setHead(LinkedListNode head) {
+        this.head = head;
+    }
+
     public void add(int d) {
         LinkedListNode end = new LinkedListNode(d);
         LinkedListNode n = this.head;

@@ -15,4 +15,11 @@ public class LinkedListTestData {
         list.addAll(values);
         return list;
     }
+
+    public static LinkedList linkedList2() {
+        int[] values = {3, 5, 8, 5, 10, 2, 1};
+        LinkedList list = new LinkedList();
+        list.addAll(values);
+        return list;
+    }
 }

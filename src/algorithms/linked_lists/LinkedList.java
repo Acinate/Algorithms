@@ -32,6 +32,19 @@ public class LinkedList {
         }
     }
 
+    public void add(LinkedListNode node) {
+        LinkedListNode end = node;
+        LinkedListNode n = this.head;
+        if (n != null) {
+            while (n.next != null) {
+                n = n.next;
+            }
+            n.next = end;
+        } else {
+            this.head = end;
+        }
+    }
+
     public void addAll(int[] data) {
         for (int d : data) {
             add(d);

@@ -36,4 +36,11 @@ public class LinkedListTestData {
         list.addAll(values);
         return list;
     }
+
+    public static LinkedList linkedList5() {
+        int[] values = {1, 2, 3, 2, 1};
+        LinkedList list = new LinkedList();
+        list.addAll(values);
+        return list;
+    }
 }

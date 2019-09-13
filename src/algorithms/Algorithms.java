@@ -1,14 +1,12 @@
 package algorithms;
 
-import algorithms.linked_lists.LoopDetection.LoopDetection;
+import algorithms.trees_graphs.TreeTraversal.TreeTraversal;
 
 public class Algorithms {
 
     public static void main(String[] args) {
-        LoopDetection ld = new LoopDetection();
-        ld.RunTests();
-
-
+        TreeTraversal tt = new TreeTraversal();
+        tt.RunTests();
     }
 
 }

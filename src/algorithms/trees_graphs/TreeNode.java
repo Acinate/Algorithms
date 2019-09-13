@@ -11,6 +11,10 @@ public class TreeNode {
         this.value = value;
     }
 
+    public int getValue() {
+        return  this.value;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(value);

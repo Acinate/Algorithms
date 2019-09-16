@@ -3,44 +3,44 @@ package algorithms.trees_graphs;
 import java.util.*;
 
 public class Graph {
-    private Map<Vertex, List<Vertex>> adjVerticies = new HashMap<>();
+    private Map<GraphVertex, List<GraphVertex>> adjVerticies = new HashMap<>();
 
-    public Map<Vertex, List<Vertex>> getAdjVerticies() {
+    public Map<GraphVertex, List<GraphVertex>> getAdjVerticies() {
         return adjVerticies;
     }
 
-    public List<Vertex> getAdjVerticies(String label) {
+    public List<GraphVertex> getAdjVerticies(String label) {
         // find vertex with this label
-        return adjVerticies.get(new Vertex(label));
+        return adjVerticies.get(new GraphVertex(label));
     }
 
-    public void setAdjVerticies(Map<Vertex, List<Vertex>> verticies) {
+    public void setAdjVerticies(Map<GraphVertex, List<GraphVertex>> verticies) {
         adjVerticies = verticies;
     }
 
     void addVertex(String label) {
-        Vertex v = new Vertex(label);
-        adjVerticies.putIfAbsent(new Vertex(label), new ArrayList<>());
+        GraphVertex v = new GraphVertex(label);
+        adjVerticies.putIfAbsent(new GraphVertex(label), new ArrayList<>());
     }
 
     void removeVertex(String label) {
-        Vertex v = new Vertex(label);
+        GraphVertex v = new GraphVertex(label);
         adjVerticies.values().stream().forEach(e -> e.remove(v));
-        adjVerticies.remove(new Vertex(label));
+        adjVerticies.remove(new GraphVertex(label));
     }
 
     void addEdge(String label1, String label2) {
-        Vertex v1 = new Vertex(label1);
-        Vertex v2 = new Vertex(label2);
+        GraphVertex v1 = new GraphVertex(label1);
+        GraphVertex v2 = new GraphVertex(label2);
         adjVerticies.get(v1).add(v2);
         adjVerticies.get(v2).add(v1);
     }
 
     void removeEdge(String label1, String label2) {
-        Vertex v1 = new Vertex(label1);
-        Vertex v2 = new Vertex(label2);
-        List<Vertex> eV1 = adjVerticies.get(v1);
-        List<Vertex> eV2 = adjVerticies.get(v2);
+        GraphVertex v1 = new GraphVertex(label1);
+        GraphVertex v2 = new GraphVertex(label2);
+        List<GraphVertex> eV1 = adjVerticies.get(v1);
+        List<GraphVertex> eV2 = adjVerticies.get(v2);
         if (eV1 != null)
             eV1.remove(v2);
         if (eV2 != null)
@@ -55,7 +55,7 @@ public class Graph {
             String vertex = stack.pop();
             if (!visited.contains(vertex)) {
                 visited.add(vertex);
-                for (Vertex v : graph.getAdjVerticies(vertex)) {
+                for (GraphVertex v : graph.getAdjVerticies(vertex)) {
                     stack.push(v.label);
                 }
             }
@@ -70,7 +70,7 @@ public class Graph {
         visited.add(root);
         while (!queue.isEmpty()) {
             String vertex = queue.poll();
-            for (Vertex v : graph.getAdjVerticies(vertex)) {
+            for (GraphVertex v : graph.getAdjVerticies(vertex)) {
                 if (!visited.contains(v.label)) {
                     visited.add(v.label);
                     queue.add(v.label);

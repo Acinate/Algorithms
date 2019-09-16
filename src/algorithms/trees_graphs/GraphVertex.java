@@ -2,9 +2,9 @@ package algorithms.trees_graphs;
 
 import java.util.Objects;
 
-public class Vertex {
+public class GraphVertex {
     String label;
-    Vertex(String label) {
+    GraphVertex(String label) {
         this.label = label;
     }
 
@@ -15,8 +15,8 @@ public class Vertex {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Vertex) {
-            return label == ((Vertex) o).label;
+        if (o instanceof GraphVertex) {
+            return label == ((GraphVertex) o).label;
         } else {
             return false;
         }

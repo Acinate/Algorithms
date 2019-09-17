@@ -1,13 +1,7 @@
 package algorithms.arrays.IsUnique;
 
 public class IsUnique {
-    private String testString1 = "This is a string";
-    private String testString2 = "2 + 2 = 4";
-    private String testString3 = "Racer123";
-    private String testString4 = "AaBbCc";
-    private String[] testStrings = {testString1, testString2, testString3, testString4};
-
-    private boolean isUnique(String testString) {
+    public boolean isUnique(String testString) {
         // If the string length is greater than 128, there must be a repeating character
         if (testString.length() > 128) return false;
 
@@ -19,11 +13,5 @@ public class IsUnique {
             char_set[val] = true;
         }
         return true;
-    }
-
-    public void RunTests() {
-        for (String testString : testStrings) {
-            System.out.println(testString + " Is Unique: " + isUnique(testString));
-        }
     }
 }

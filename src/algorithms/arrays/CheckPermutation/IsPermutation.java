@@ -2,11 +2,7 @@ package algorithms.arrays.CheckPermutation;
 
 import java.util.HashMap;
 
-public class CheckPermutation {
-    public String[] testString1 = {"abcde", "edcab"};
-    public String[] testString2 = {"bbacde", "abcde"};
-    public String[][] testStrings = {testString1,testString2};
-
+public class IsPermutation {
     public boolean isPermutation(String s1, String s2) {
         if (s1.length() != s2.length()) return false; // Permutations must be same length
 
@@ -23,11 +19,5 @@ public class CheckPermutation {
         }
 
         return true; // letters has no neg values, and therefore no pos values either
-    }
-
-    public void runTests() {
-        for (String[] testString : testStrings) {
-            System.out.println(testString[0] + " is a permutation of " + testString[1] + " : " + isPermutation(testString[0],testString[1]));
-        }
     }
 }

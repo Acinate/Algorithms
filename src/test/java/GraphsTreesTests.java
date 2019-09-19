@@ -3,13 +3,16 @@ package test.java;
 import algorithms.trees_graphs.Graph;
 import algorithms.trees_graphs.GraphTestData;
 import algorithms.trees_graphs.GraphVertex;
+import algorithms.trees_graphs.MinimalTree.MinimalTree;
 import algorithms.trees_graphs.RouteBetweenNodes.RouteBetweenNodes;
+import algorithms.trees_graphs.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class GraphsTreesTests {
 
     private RouteBetweenNodes routeBetweenNodes = new RouteBetweenNodes();
+    private MinimalTree minimalTree = new MinimalTree();
 
     @Test
     void TestRouteBetweenNodes() {
@@ -41,5 +44,26 @@ public class GraphsTreesTests {
         Assertions.assertFalse(rob_chucky);
         // Chucky doesn't know anybody, should return false
         Assertions.assertFalse(chucky_rob);
+    }
+
+    @Test
+    void TestMinimalTree() {
+        int[] array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        TreeNode node = minimalTree.createMinimalTree(array);
+
+        // Middle node
+        Assertions.assertEquals(node.value, 5);
+        // Left subtree
+        Assertions.assertEquals(node.left.value, 2);
+        Assertions.assertEquals(node.left.left.value, 1);
+        Assertions.assertEquals(node.left.right.value, 3);
+        Assertions.assertEquals(node.left.right.right.value, 4);
+        // Right subtree
+        Assertions.assertEquals(node.right.value, 8);
+        Assertions.assertEquals(node.right.left.value, 6);
+        Assertions.assertEquals(node.right.left.right.value, 7);
+        Assertions.assertEquals(node.right.right.value, 9);
+        Assertions.assertEquals(node.right.right.right.value, 10);
     }
 }

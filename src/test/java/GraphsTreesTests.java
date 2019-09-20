@@ -3,16 +3,21 @@ package test.java;
 import algorithms.trees_graphs.Graph;
 import algorithms.trees_graphs.GraphTestData;
 import algorithms.trees_graphs.GraphVertex;
+import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
 import algorithms.trees_graphs.MinimalTree.MinimalTree;
 import algorithms.trees_graphs.RouteBetweenNodes.RouteBetweenNodes;
 import algorithms.trees_graphs.TreeNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class GraphsTreesTests {
 
     private RouteBetweenNodes routeBetweenNodes = new RouteBetweenNodes();
     private MinimalTree minimalTree = new MinimalTree();
+    private ListOfDepths listOfDepths = new ListOfDepths();
 
     @Test
     void TestRouteBetweenNodes() {
@@ -65,5 +70,34 @@ public class GraphsTreesTests {
         Assertions.assertEquals(node.right.left.right.value, 7);
         Assertions.assertEquals(node.right.right.value, 9);
         Assertions.assertEquals(node.right.right.right.value, 10);
+    }
+
+    @Test
+    void TestListOfDepthsDFT() {
+        int[] array = new int[] { 1,2,3,4,5,6,7,8,9,10 };
+        TreeNode root = minimalTree.createMinimalTree(array);
+
+        ArrayList<LinkedList<TreeNode>> lists = listOfDepths.createLevelLinkedListsDFT(root);
+
+        // Test height of tree
+        Assertions.assertEquals(lists.size(), 4);
+        // Test LinkedList contents of height = 1
+        Assertions.assertEquals(lists.get(0).size(), 1);
+        Assertions.assertEquals(lists.get(0).get(0).value, 5);
+        // Test LinkedList contents of height = 2
+        Assertions.assertEquals(lists.get(1).size(), 2);
+        Assertions.assertEquals(lists.get(1).get(0).value, 2);
+        Assertions.assertEquals(lists.get(1).get(1).value, 8);
+        // Test LinkedList contents of height = 3
+        Assertions.assertEquals(lists.get(2).size(), 4);
+        Assertions.assertEquals(lists.get(2).get(0).value, 1);
+        Assertions.assertEquals(lists.get(2).get(1).value, 3);
+        Assertions.assertEquals(lists.get(2).get(2).value, 6);
+        Assertions.assertEquals(lists.get(2).get(3).value, 9);
+        // Test LinkedList contents of height = 3
+        Assertions.assertEquals(lists.get(3).size(), 3);
+        Assertions.assertEquals(lists.get(3).get(0).value, 4);
+        Assertions.assertEquals(lists.get(3).get(1).value, 7);
+        Assertions.assertEquals(lists.get(3).get(2).value, 10);
     }
 }

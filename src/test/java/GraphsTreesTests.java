@@ -1,5 +1,6 @@
 package test.java;
 
+import algorithms.trees_graphs.CheckBalanced.CheckBalanced;
 import algorithms.trees_graphs.Graph;
 import algorithms.trees_graphs.GraphTestData;
 import algorithms.trees_graphs.GraphVertex;
@@ -18,6 +19,7 @@ public class GraphsTreesTests {
     private RouteBetweenNodes routeBetweenNodes = new RouteBetweenNodes();
     private MinimalTree minimalTree = new MinimalTree();
     private ListOfDepths listOfDepths = new ListOfDepths();
+    private CheckBalanced checkBalanced = new CheckBalanced();
 
     @Test
     void TestRouteBetweenNodes() {
@@ -128,5 +130,20 @@ public class GraphsTreesTests {
         Assertions.assertEquals(lists.get(3).get(0).value, 4);
         Assertions.assertEquals(lists.get(3).get(1).value, 7);
         Assertions.assertEquals(lists.get(3).get(2).value, 10);
+    }
+
+    @Test
+    void TestCheckBalanced() {
+        int[] array;
+        array  = new int[] { 1,2,3 };
+        TreeNode balancedTree = minimalTree.createMinimalTree(array);
+        array  = new int[] { 1,2,3,4,5,6 };
+        TreeNode unbalancedTree = minimalTree.createMinimalTree(array);
+
+
+        boolean balanced = checkBalanced.isBalancedTree(balancedTree);
+        boolean unbalanced = checkBalanced.isBalancedTree(unbalancedTree);
+        Assertions.assertTrue(balanced);
+        Assertions.assertFalse(unbalanced);
     }
 }

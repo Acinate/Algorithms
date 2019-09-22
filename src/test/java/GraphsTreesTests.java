@@ -5,6 +5,7 @@ import algorithms.trees_graphs.CheckBalanced.CheckBalanced;
 import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
 import algorithms.trees_graphs.MinimalTree.MinimalTree;
 import algorithms.trees_graphs.RouteBetweenNodes.RouteBetweenNodes;
+import algorithms.trees_graphs.Successor.Successor;
 import algorithms.trees_graphs.ValidateBST.ValidateBST;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ public class GraphsTreesTests {
     private ListOfDepths listOfDepths = new ListOfDepths();
     private CheckBalanced checkBalanced = new CheckBalanced();
     private ValidateBST validateBST = new ValidateBST();
+    private Successor successor = new Successor();
 
     private TreeTestData treeTestData = new TreeTestData();
 
@@ -159,5 +161,12 @@ public class GraphsTreesTests {
 
         Assertions.assertTrue(validBst);
         Assertions.assertFalse(invalidBst);
+    }
+
+    @Test
+    void TestSuccessor() {
+        TreeNode tree = treeTestData.Tree1().getRoot();
+        TreeNode success = successor.inOrderSuccessor(tree);
+        Assertions.assertEquals(success.value, 6);
     }
 }

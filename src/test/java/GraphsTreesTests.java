@@ -1,13 +1,11 @@
 package test.java;
 
+import algorithms.trees_graphs.*;
 import algorithms.trees_graphs.CheckBalanced.CheckBalanced;
-import algorithms.trees_graphs.Graph;
-import algorithms.trees_graphs.GraphTestData;
-import algorithms.trees_graphs.GraphVertex;
 import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
 import algorithms.trees_graphs.MinimalTree.MinimalTree;
 import algorithms.trees_graphs.RouteBetweenNodes.RouteBetweenNodes;
-import algorithms.trees_graphs.TreeNode;
+import algorithms.trees_graphs.ValidateBST.ValidateBST;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +18,9 @@ public class GraphsTreesTests {
     private MinimalTree minimalTree = new MinimalTree();
     private ListOfDepths listOfDepths = new ListOfDepths();
     private CheckBalanced checkBalanced = new CheckBalanced();
+    private ValidateBST validateBST = new ValidateBST();
+
+    private TreeTestData treeTestData = new TreeTestData();
 
     @Test
     void TestRouteBetweenNodes() {
@@ -145,5 +146,18 @@ public class GraphsTreesTests {
         boolean unbalanced = checkBalanced.isBalancedTree(unbalancedTree);
         Assertions.assertTrue(balanced);
         Assertions.assertFalse(unbalanced);
+    }
+
+    @Test
+    void TestValidateBST() {
+        int[] array  = new int[] { 1,2,3,4,5,6 };
+        TreeNode validTree = minimalTree.createMinimalTree(array);
+        TreeNode invalidTree = treeTestData.Tree1().getRoot();
+
+        boolean validBst = validateBST.checkBST(validTree);
+        boolean invalidBst = validateBST.checkBST(invalidTree);
+
+        Assertions.assertTrue(validBst);
+        Assertions.assertFalse(invalidBst);
     }
 }

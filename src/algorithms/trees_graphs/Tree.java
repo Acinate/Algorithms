@@ -6,6 +6,10 @@ public class Tree {
 
     TreeNode root;
 
+    public TreeNode getRoot() {
+        return this.root;
+    }
+
     void addNode(int value) {
         if (this.root == null) {
             this.root = new TreeNode(value);
@@ -23,13 +27,13 @@ public class Tree {
             if (temp.left != null) {
                 queue.add(temp.left);
             } else {
-                temp.left = new TreeNode(value);
+                temp.left = new TreeNode(value, temp);
                 break;
             }
             if (temp.right != null) {
                 queue.add(temp.right);
             } else {
-                temp.right = new TreeNode(value);
+                temp.right = new TreeNode(value, temp);
                 break;
             }
         }

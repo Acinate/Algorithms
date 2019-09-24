@@ -2,6 +2,7 @@ package test.java;
 
 import algorithms.trees_graphs.*;
 import algorithms.trees_graphs.BuildOrder.BuildOrder;
+import algorithms.trees_graphs.BuildOrder.BuildOrderDFS;
 import algorithms.trees_graphs.CheckBalanced.CheckBalanced;
 import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
 import algorithms.trees_graphs.MinimalTree.MinimalTree;
@@ -24,6 +25,7 @@ public class GraphsTreesTests {
     private ValidateBST validateBST = new ValidateBST();
     private Successor successor = new Successor();
     private BuildOrder buildOrder = new BuildOrder();
+    private BuildOrderDFS buildOrderDFS = new BuildOrderDFS();
 
     private TreeTestData treeTestData = new TreeTestData();
 
@@ -182,6 +184,18 @@ public class GraphsTreesTests {
         String[] order2 = buildOrder.projectsAsString(buildOrder.finalBuildOrder(projects, dependencies2));
 
         Assertions.assertTrue(Arrays.equals(order1, new String[] {"e","f","b","a","d","c"}));
+        Assertions.assertTrue(Arrays.equals(order2, null));
+    }
+
+    @Test
+    void TestBuildOrderDFS() {
+        String[] projects = new String[] {"a", "b", "c", "d", "e", "f"};
+        String[][] dependencies1 = new String[][] {{"a","d"},{"f","b"},{"b","d"},{"f","a"},{"d","c"}};
+        String[][] dependencies2 = new String[][] {{"a","d"},{"f","b"},{"b","d"},{"f","a"},{"d","c"}, {"c","f"}};
+        String[] order1 = buildOrderDFS.projectsAsString(buildOrderDFS.findBuildOrder(projects, dependencies1));
+        String[] order2 = buildOrderDFS.projectsAsString(buildOrderDFS.findBuildOrder(projects, dependencies2));
+
+        Assertions.assertTrue(Arrays.equals(order1, new String[] {"f","e","b","a","d","c"}));
         Assertions.assertTrue(Arrays.equals(order2, null));
     }
 }

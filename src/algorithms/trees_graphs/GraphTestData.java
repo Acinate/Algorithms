@@ -8,6 +8,7 @@ public class GraphTestData {
         graph.addVertex("Mark");
         graph.addVertex("Rob");
         graph.addVertex("Maria");
+        graph.addVertex("Chucky");
         graph.addEdge("Bob", "Alice");
         graph.addEdge("Bob", "Rob");
         graph.addEdge("Alice", "Mark");

@@ -3,12 +3,18 @@ package algorithms.trees_graphs;
 import java.util.Objects;
 
 public class TreeNode {
-    int value;
-    TreeNode left;
-    TreeNode right;
+    public int value;
+    public TreeNode parent;
+    public TreeNode left;
+    public TreeNode right;
 
-    TreeNode(int value) {
+    public TreeNode(int value) {
         this.value = value;
+    }
+
+    public TreeNode(int value, TreeNode parent) {
+        this.value = value;
+        this.parent = parent;
     }
 
     public int getValue() {

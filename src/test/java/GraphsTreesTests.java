@@ -4,6 +4,7 @@ import algorithms.trees_graphs.*;
 import algorithms.trees_graphs.BuildOrder.BuildOrder;
 import algorithms.trees_graphs.BuildOrder.BuildOrderDFS;
 import algorithms.trees_graphs.CheckBalanced.CheckBalanced;
+import algorithms.trees_graphs.FirstCommonAncestor.CommonAncestor1;
 import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
 import algorithms.trees_graphs.MinimalTree.MinimalTree;
 import algorithms.trees_graphs.RouteBetweenNodes.RouteBetweenNodes;
@@ -26,6 +27,7 @@ public class GraphsTreesTests {
     private Successor successor = new Successor();
     private BuildOrder buildOrder = new BuildOrder();
     private BuildOrderDFS buildOrderDFS = new BuildOrderDFS();
+    private CommonAncestor1 commonAncestor = new CommonAncestor1();
 
     private TreeTestData treeTestData = new TreeTestData();
 
@@ -197,5 +199,21 @@ public class GraphsTreesTests {
 
         Assertions.assertTrue(Arrays.equals(order1, new String[] {"f","e","b","a","d","c"}));
         Assertions.assertTrue(Arrays.equals(order2, null));
+    }
+
+    @Test
+    void TestCommonAncestor1() {
+        Tree tree = treeTestData.Tree1();
+        TreeNode a = tree.getRoot().left;
+        TreeNode b = tree.getRoot().right;
+        TreeNode c = new TreeNode(5);
+
+        TreeNode ancestor1 = commonAncestor.commonAncestor(a,b);
+        TreeNode ancestor2 = commonAncestor.commonAncestor(b,a);
+        TreeNode ancestor3 = commonAncestor.commonAncestor(a,c);
+
+        Assertions.assertEquals(ancestor1.getValue(), 1);
+        Assertions.assertEquals(ancestor2.getValue(), 1);
+        Assertions.assertNull(ancestor3);
     }
 }

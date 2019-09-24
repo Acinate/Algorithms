@@ -30,6 +30,7 @@ public class GraphsTreesTests {
     private BuildOrderDFS buildOrderDFS = new BuildOrderDFS();
     private CommonAncestor1 commonAncestor1 = new CommonAncestor1();
     private CommonAncestor2 commonAncestor2 = new CommonAncestor2();
+    private CommonAncestor2 commonAncestor3 = new CommonAncestor2();
 
     private TreeTestData treeTestData = new TreeTestData();
 
@@ -204,7 +205,7 @@ public class GraphsTreesTests {
     }
 
     @Test
-    void TestCommonAncestor1() {
+    void TestCommonAncestor() {
         Tree tree = treeTestData.Tree1();
 
         TreeNode root = tree.getRoot();
@@ -227,5 +228,13 @@ public class GraphsTreesTests {
         Assertions.assertEquals(ancestor21.getValue(), 1);
         Assertions.assertEquals(ancestor22.getValue(), 1);
         Assertions.assertNull(ancestor23);
+
+        TreeNode ancestor31 = commonAncestor3.commonAncestor(root,a,b);
+        TreeNode ancestor32 = commonAncestor3.commonAncestor(root,b,a);
+        TreeNode ancestor33 = commonAncestor3.commonAncestor(root,a,c);
+
+        Assertions.assertEquals(ancestor31.getValue(), 1);
+        Assertions.assertEquals(ancestor32.getValue(), 1);
+        Assertions.assertNull(ancestor33);
     }
 }

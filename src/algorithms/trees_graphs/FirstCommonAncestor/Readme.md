@@ -33,4 +33,9 @@ To implement this, we can just traverse upwards from p, storing the parent and t
 sibling node is always a child of parent and refers to the newly uncovered subtree.) At each iteration, sibling gets
 set to the old parent's sibling node and parent gets set to parent.parent.
   
-   
+### Solution #3: Without Links to Parents
+
+Alternatively, you could follow a chain in which p and q are on the same side. That is, if p and q are both on the
+left of the nodes, branch left to look for the common ancestor. If they are both on the right, branch right to look
+for the common ancestor. When p and q are no longer on the same sidem you must have found the first common ancestor.
+

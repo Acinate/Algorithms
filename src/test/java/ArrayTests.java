@@ -2,6 +2,7 @@ package test.java;
 
 import algorithms.arrays.CheckPermutation.IsPermutation;
 import algorithms.arrays.IsUnique.IsUnique;
+import algorithms.arrays.URLify.URLify;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,7 @@ class ArrayTests {
 
     private IsUnique isUnique = new IsUnique();
     private IsPermutation isPermutation = new IsPermutation();
+    private URLify urlify = new URLify();
 
     @Test
     void isUnique() {

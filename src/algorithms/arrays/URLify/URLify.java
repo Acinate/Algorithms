@@ -1,11 +1,9 @@
 package algorithms.arrays.URLify;
 
 public class URLify {
-    char[] testCharArr1 = {'M','r',' ','J','o','h','n',' ','S','m','i','t','h',' ',' ',' ',' '};
-
     public char[] replaceSpaces(char[] str, int trueLength) {
         int spaceCount = 0, index, i = 0;
-        for (i=0;i<trueLength;i++) {
+        for (i = 0; i < trueLength; i++) {
             if (str[i] == ' ') {
                 spaceCount++;
             }
@@ -23,11 +21,6 @@ public class URLify {
                 index--;
             }
         }
-
         return str;
-    }
-
-    public void runTests() {
-        System.out.println(replaceSpaces(testCharArr1, 13));
     }
 }

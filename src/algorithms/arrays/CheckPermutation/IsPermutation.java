@@ -1,7 +1,5 @@
 package algorithms.arrays.CheckPermutation;
 
-import java.util.HashMap;
-
 public class IsPermutation {
     public boolean isPermutation(String s1, String s2) {
         if (s1.length() != s2.length()) return false; // Permutations must be same length

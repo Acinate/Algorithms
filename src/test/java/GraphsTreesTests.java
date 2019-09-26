@@ -1,6 +1,7 @@
 package test.java;
 
 import algorithms.trees_graphs.*;
+import algorithms.trees_graphs.BSTSequences.BSTSequences;
 import algorithms.trees_graphs.BuildOrder.BuildOrder;
 import algorithms.trees_graphs.BuildOrder.BuildOrderDFS;
 import algorithms.trees_graphs.CheckBalanced.CheckBalanced;
@@ -31,6 +32,7 @@ public class GraphsTreesTests {
     private CommonAncestor1 commonAncestor1 = new CommonAncestor1();
     private CommonAncestor2 commonAncestor2 = new CommonAncestor2();
     private CommonAncestor2 commonAncestor3 = new CommonAncestor2();
+    private BSTSequences bstSequences = new BSTSequences();
 
     private TreeTestData treeTestData = new TreeTestData();
 
@@ -236,5 +238,14 @@ public class GraphsTreesTests {
         Assertions.assertEquals(ancestor31.getValue(), 1);
         Assertions.assertEquals(ancestor32.getValue(), 1);
         Assertions.assertNull(ancestor33);
+    }
+
+    @Test
+    void TestBSTSquences() {
+        Tree tree = treeTestData.Tree2();
+
+        ArrayList<LinkedList<Integer>> sequences = bstSequences.allSequences(tree.getRoot());
+
+        Assertions.assertEquals(2, sequences.size());
     }
 }

@@ -10,6 +10,7 @@ import algorithms.trees_graphs.FirstCommonAncestor.CommonAncestor1;
 import algorithms.trees_graphs.FirstCommonAncestor.CommonAncestor2;
 import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
 import algorithms.trees_graphs.MinimalTree.MinimalTree;
+import algorithms.trees_graphs.RandomNode.RTreeNode;
 import algorithms.trees_graphs.RouteBetweenNodes.RouteBetweenNodes;
 import algorithms.trees_graphs.Successor.Successor;
 import algorithms.trees_graphs.ValidateBST.ValidateBST;
@@ -259,5 +260,19 @@ public class GraphsTreesTests {
         Assertions.assertTrue(checkSubtree.containsTree(tree1.getRoot(), tree1.getRoot()));
         Assertions.assertTrue(checkSubtree.containsTree(tree1.getRoot(), tree2.getRoot()));
         Assertions.assertFalse(checkSubtree.containsTree(tree2.getRoot(), tree1.getRoot()));
+    }
+
+    @Test
+    void TestRandomNode() {
+        RTreeNode rTreeNode = new RTreeNode(0);
+        rTreeNode.insertInOrder(1);
+        rTreeNode.insertInOrder(2);
+        rTreeNode.insertInOrder(3);
+        rTreeNode.insertInOrder(4);
+        rTreeNode.insertInOrder(5);
+
+        int randomValue = rTreeNode.getRandomNode().data();
+
+        Assertions.assertTrue(randomValue <= 5 && randomValue >= 0);
     }
 }

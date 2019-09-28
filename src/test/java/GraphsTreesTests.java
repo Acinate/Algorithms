@@ -5,6 +5,7 @@ import algorithms.trees_graphs.BSTSequences.BSTSequences;
 import algorithms.trees_graphs.BuildOrder.BuildOrder;
 import algorithms.trees_graphs.BuildOrder.BuildOrderDFS;
 import algorithms.trees_graphs.CheckBalanced.CheckBalanced;
+import algorithms.trees_graphs.CheckSubtree.CheckSubtree;
 import algorithms.trees_graphs.FirstCommonAncestor.CommonAncestor1;
 import algorithms.trees_graphs.FirstCommonAncestor.CommonAncestor2;
 import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
@@ -33,6 +34,7 @@ public class GraphsTreesTests {
     private CommonAncestor2 commonAncestor2 = new CommonAncestor2();
     private CommonAncestor2 commonAncestor3 = new CommonAncestor2();
     private BSTSequences bstSequences = new BSTSequences();
+    private CheckSubtree checkSubtree = new CheckSubtree();
 
     private TreeTestData treeTestData = new TreeTestData();
 
@@ -247,5 +249,15 @@ public class GraphsTreesTests {
         ArrayList<LinkedList<Integer>> sequences = bstSequences.allSequences(tree.getRoot());
 
         Assertions.assertEquals(2, sequences.size());
+    }
+
+    @Test
+    void TestCheckSubtree() {
+        Tree tree1 = treeTestData.Tree1();
+        Tree tree2 = treeTestData.Subtree1();
+
+        Assertions.assertTrue(checkSubtree.containsTree(tree1.getRoot(), tree1.getRoot()));
+        Assertions.assertTrue(checkSubtree.containsTree(tree1.getRoot(), tree2.getRoot()));
+        Assertions.assertFalse(checkSubtree.containsTree(tree2.getRoot(), tree1.getRoot()));
     }
 }

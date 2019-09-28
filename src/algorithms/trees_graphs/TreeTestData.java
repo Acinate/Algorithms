@@ -20,4 +20,12 @@ public class TreeTestData {
         tree.addNode(3);
         return tree;
     }
+
+    public static Tree Subtree1() {
+        Tree tree = new Tree();
+        tree.addNode(2);
+        tree.addNode(4);
+        tree.addNode(5);
+        return tree;
+    }
 }

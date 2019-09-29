@@ -10,6 +10,7 @@ import algorithms.trees_graphs.FirstCommonAncestor.CommonAncestor1;
 import algorithms.trees_graphs.FirstCommonAncestor.CommonAncestor2;
 import algorithms.trees_graphs.ListOfDepths.ListOfDepths;
 import algorithms.trees_graphs.MinimalTree.MinimalTree;
+import algorithms.trees_graphs.PathsWinSum.PathsWithSum;
 import algorithms.trees_graphs.RandomNode.RTreeNode;
 import algorithms.trees_graphs.RouteBetweenNodes.RouteBetweenNodes;
 import algorithms.trees_graphs.Successor.Successor;
@@ -36,6 +37,7 @@ public class GraphsTreesTests {
     private CommonAncestor2 commonAncestor3 = new CommonAncestor2();
     private BSTSequences bstSequences = new BSTSequences();
     private CheckSubtree checkSubtree = new CheckSubtree();
+    private PathsWithSum pathsWithSum = new PathsWithSum();
 
     private TreeTestData treeTestData = new TreeTestData();
 
@@ -274,5 +276,16 @@ public class GraphsTreesTests {
         int randomValue = rTreeNode.getRandomNode().data();
 
         Assertions.assertTrue(randomValue <= 5 && randomValue >= 0);
+    }
+
+    @Test
+    void TestPathsWithSum() {
+        Tree tree = treeTestData.Tree1();
+
+        Assertions.assertEquals(0, pathsWithSum.countPathsWithSum(tree.getRoot(), 0));
+        Assertions.assertEquals(1, pathsWithSum.countPathsWithSum(tree.getRoot(), 1));
+        Assertions.assertEquals(1, pathsWithSum.countPathsWithSum(tree.getRoot(), 2));
+        Assertions.assertEquals(2, pathsWithSum.countPathsWithSum(tree.getRoot(), 3));
+        Assertions.assertEquals(2, pathsWithSum.countPathsWithSum(tree.getRoot(), 4));
     }
 }

@@ -287,5 +287,11 @@ public class GraphsTreesTests {
         Assertions.assertEquals(1, pathsWithSum.countPathsWithSum(tree.getRoot(), 2));
         Assertions.assertEquals(2, pathsWithSum.countPathsWithSum(tree.getRoot(), 3));
         Assertions.assertEquals(2, pathsWithSum.countPathsWithSum(tree.getRoot(), 4));
+
+        Assertions.assertEquals(0, pathsWithSum.countPathsWithSumHash(tree.getRoot(), 0));
+        Assertions.assertEquals(1, pathsWithSum.countPathsWithSumHash(tree.getRoot(), 1));
+        Assertions.assertEquals(1, pathsWithSum.countPathsWithSumHash(tree.getRoot(), 2));
+        Assertions.assertEquals(2, pathsWithSum.countPathsWithSumHash(tree.getRoot(), 3));
+        Assertions.assertEquals(2, pathsWithSum.countPathsWithSumHash(tree.getRoot(), 4));
     }
 }

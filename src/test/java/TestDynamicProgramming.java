@@ -11,5 +11,6 @@ class TestDynamicProgramming {
     @Test
     void TestTripleStep() {
         Assertions.assertEquals(4, tripleStep.count(3));
+        Assertions.assertEquals(4, tripleStep.countWays(3));
     }
 }

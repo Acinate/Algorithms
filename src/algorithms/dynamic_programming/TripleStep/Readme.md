@@ -41,3 +41,20 @@ You could define it either way. There is no "right" answer here.
 
 However, it's a lot easier to define it as 1. If you defined it as 0, then you would need some additional base cases
 (or else you'd just wind up with a series of 0s getting added).
+
+This solution has a run time of O(3^n)
+
+### Memoization Solution
+
+The previous solution for countWays is called many times for the same values, which is unnecessary. We can fix this
+through memoization.
+ 
+Essentially, if we've seen this value of n before, return the cached value. Each time we compute a fresh value, add
+it to the cache.
+
+Typically we use a HashMap<Integer, Integer> for a cache. In this case, the keys will be exactly 1 through n. It's
+ more compact to use an integer array.
+ 
+Regardless of whether or not you use memoization, note that the number of ways will quickly overflow the bounds of
+an integer. By the time you get to just n = 37, the result has already overflowed. Using a long will delay, but not
+completely solve, this issue.

@@ -1,5 +1,6 @@
 package test.java;
 
+import algorithms.dynamic_programming.MagicIndex.MagicIndex;
 import algorithms.dynamic_programming.RobotInGrid.RobotInGrid;
 import algorithms.dynamic_programming.TripleStep.TripleStep;
 import org.junit.jupiter.api.Assertions;
@@ -12,6 +13,7 @@ class TestDynamicProgramming {
 
     private TripleStep tripleStep = new TripleStep();
     private RobotInGrid robotInGrid = new RobotInGrid();
+    private MagicIndex magicIndex = new MagicIndex();
 
     @Test
     void TestTripleStep() {
@@ -32,5 +34,12 @@ class TestDynamicProgramming {
 
         Assertions.assertNotNull(path);
         Assertions.assertEquals(6, path.size());
+    }
+
+    @Test
+    void TestMagicIndex() {
+        int[] array = new int[] {0,1,2,3,5,6,7,8,9,10};
+        int index = magicIndex.magicFast(array);
+        Assertions.assertEquals(1,index);
     }
 }

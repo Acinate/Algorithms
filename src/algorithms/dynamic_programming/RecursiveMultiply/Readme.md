@@ -44,3 +44,23 @@ If we observe how the recursion operates, we'll notice that we have duplicated w
 The second call to minProduct(4, 23) is unaware of the prior call, and so it repeats the same work. We should cache
 these results.
 
+We can still make this a bit faster.
+
+## Solution #3
+
+One thing we might notice when we look at thid code is that a call to minProduct on an even number is much faster
+than one on an odd number. For example, if we call minProduct(30, 35), then we'll just do minProduct(15, 35) and
+double the result. However, if we do minProduct(31, 35), then we'll need to call minProduct(15, 35) and minProduct
+(16, 35).
+
+This is unecessary. Instead, we can do:
+
+``minProduct(31, 35) = 2 * minProduct(15, 35) + 35``
+
+After all, since 31 = 2*15+1, then 31x35 = 2*15*35+35.
+
+The logic in this final solution is that, on even numbers, we just divide small by 2 and double the result of the
+recursive call. On odd numbers, we do the same, but then we also add bigger to this result.
+
+In doing so, we have an unexpected "win". Our minProduct function just recurses straight downwards, with increasingly
+small numbers each time. It will never repeat the same cell, so there's no need to cache any information.

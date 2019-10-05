@@ -22,3 +22,25 @@ squares, we repeat the same process.
 
 Of course, this "doubling" only works if the number is in fact even, When it's not even, we need to do the counting
 /summing from scratch.
+
+Can we do better? Yes.
+
+## Solution #2
+
+If we observe how the recursion operates, we'll notice that we have duplicated work. Consider this example:
+
+```java
+    minProduct(17, 23)
+        minProduct(8, 23)
+            minProduct(4, 23) * 2
+                ...
+  + minProduct(9, 23)
+        minProduct(4, 23)
+            ...
+      + minProduct(5, 23)
+            ...
+```
+
+The second call to minProduct(4, 23) is unaware of the prior call, and so it repeats the same work. We should cache
+these results.
+

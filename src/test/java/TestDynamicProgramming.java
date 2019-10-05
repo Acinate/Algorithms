@@ -2,6 +2,7 @@ package test.java;
 
 import algorithms.dynamic_programming.MagicIndex.MagicIndex;
 import algorithms.dynamic_programming.PowerSet.PowerSet;
+import algorithms.dynamic_programming.RecursiveMultiply.RecursiveMultiply;
 import algorithms.dynamic_programming.RobotInGrid.RobotInGrid;
 import algorithms.dynamic_programming.TripleStep.TripleStep;
 import org.junit.jupiter.api.Assertions;
@@ -17,6 +18,7 @@ class TestDynamicProgramming {
     private RobotInGrid robotInGrid = new RobotInGrid();
     private MagicIndex magicIndex = new MagicIndex();
     private PowerSet powerSet = new PowerSet();
+    private RecursiveMultiply recursiveMultiply = new RecursiveMultiply();
 
     @Test
     void TestTripleStep() {
@@ -55,5 +57,13 @@ class TestDynamicProgramming {
         ArrayList<ArrayList<Integer>> subsets = powerSet.getSubsets(set);
         Assertions.assertNotNull(subsets);
         Assertions.assertEquals(32, subsets.size());
+    }
+
+    @Test
+    void RecursiveMultiply() {
+        Assertions.assertEquals(0, recursiveMultiply.minProduct(0,2));
+        Assertions.assertEquals(2, recursiveMultiply.minProduct(1,2));
+        Assertions.assertEquals(4, recursiveMultiply.minProduct(2,2));
+        Assertions.assertEquals(6, recursiveMultiply.minProduct(3,2));
     }
 }

@@ -15,4 +15,11 @@ In binary search, we find an element k by comparing it to the middle element, x,
 the left or right side of x.
 
 Building off this approach, is there a way that we can look at the middle element to determine where a magic index
-might be? We can use binary search to navigate through this sorted array of distinct elements. 
+might be? We can use binary search to navigate through this sorted array of distinct elements.
+
+### Follow Up: What if the elements are not distinct?
+
+If the elements are not distinct, then this algorithm fails.
+
+The general pattern is that we compare midIndex and midValue for equality first. Then, if they are not equal, we
+recursively search the left and right sides as follows:

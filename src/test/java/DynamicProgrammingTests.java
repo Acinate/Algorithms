@@ -1,6 +1,7 @@
 package test.java;
 
 import algorithms.dynamic_programming.MagicIndex.MagicIndex;
+import algorithms.dynamic_programming.PermutationsWithoutDups.PermutationsWithoutDups;
 import algorithms.dynamic_programming.PowerSet.PowerSet;
 import algorithms.dynamic_programming.RecursiveMultiply.RecursiveMultiply;
 import algorithms.dynamic_programming.RobotInGrid.RobotInGrid;
@@ -22,6 +23,7 @@ class DynamicProgrammingTests {
     private PowerSet powerSet = new PowerSet();
     private RecursiveMultiply recursiveMultiply = new RecursiveMultiply();
     private TowersOfHanoi towersOfHanoi = new TowersOfHanoi();
+    private PermutationsWithoutDups permutationsWithoutDups = new PermutationsWithoutDups();
 
     @Test
     void TestTripleStep() {
@@ -79,5 +81,12 @@ class DynamicProgrammingTests {
         Assertions.assertNotNull(endTowers);
         Assertions.assertEquals(0,endTowers[0].diskCount());
         Assertions.assertEquals(3,endTowers[2].diskCount());
+    }
+
+    @Test
+    void PermutationsWithoutDups() {
+        Assertions.assertEquals(2, permutationsWithoutDups.getPerms("ab").size());
+        Assertions.assertEquals(6, permutationsWithoutDups.getPerms("abc").size());
+        Assertions.assertEquals(24, permutationsWithoutDups.getPerms("abcd").size());
     }
 }

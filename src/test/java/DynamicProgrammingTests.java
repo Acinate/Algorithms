@@ -88,5 +88,9 @@ class DynamicProgrammingTests {
         Assertions.assertEquals(2, permutationsWithoutDups.getPerms("ab").size());
         Assertions.assertEquals(6, permutationsWithoutDups.getPerms("abc").size());
         Assertions.assertEquals(24, permutationsWithoutDups.getPerms("abcd").size());
+
+        Assertions.assertEquals(2, permutationsWithoutDups.getPerms2("ab").size());
+        Assertions.assertEquals(6, permutationsWithoutDups.getPerms2("abc").size());
+        Assertions.assertEquals(24, permutationsWithoutDups.getPerms2("abcd").size());
     }
 }

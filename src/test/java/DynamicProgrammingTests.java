@@ -1,6 +1,7 @@
 package test.java;
 
 import algorithms.dynamic_programming.MagicIndex.MagicIndex;
+import algorithms.dynamic_programming.Parens.Parens;
 import algorithms.dynamic_programming.PermutationsWithDuplicates.PermutationsWithDups;
 import algorithms.dynamic_programming.PermutationsWithoutDups.PermutationsWithoutDups;
 import algorithms.dynamic_programming.PowerSet.PowerSet;
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 
 class DynamicProgrammingTests {
 
@@ -26,6 +28,7 @@ class DynamicProgrammingTests {
     private TowersOfHanoi towersOfHanoi = new TowersOfHanoi();
     private PermutationsWithoutDups permutationsWithoutDups = new PermutationsWithoutDups();
     private PermutationsWithDups permutationsWithDups = new PermutationsWithDups();
+    private Parens parens = new Parens();
 
     @Test
     void TestTripleStep() {
@@ -101,5 +104,12 @@ class DynamicProgrammingTests {
         Assertions.assertEquals(6, permutationsWithDups.printPerms("abc").size());
         Assertions.assertEquals(24, permutationsWithDups.printPerms("abcd").size());
         Assertions.assertEquals(12, permutationsWithDups.printPerms("abbd").size());
+    }
+
+    @Test
+    void TestParens() {
+        String expected1 = "[()()(), ()(()), (()()), (())(), ((()))]";
+        String result1 = parens.generateParens(3).toString();
+        Assertions.assertEquals(expected1,result1);
     }
 }

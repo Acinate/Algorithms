@@ -1,6 +1,8 @@
 package test.java;
 
 import algorithms.dynamic_programming.MagicIndex.MagicIndex;
+import algorithms.dynamic_programming.PaintFill.PaintFill;
+import algorithms.dynamic_programming.PaintFill.PixelColor;
 import algorithms.dynamic_programming.Parens.Parens;
 import algorithms.dynamic_programming.PermutationsWithDuplicates.PermutationsWithDups;
 import algorithms.dynamic_programming.PermutationsWithoutDups.PermutationsWithoutDups;
@@ -29,6 +31,7 @@ class DynamicProgrammingTests {
     private PermutationsWithoutDups permutationsWithoutDups = new PermutationsWithoutDups();
     private PermutationsWithDups permutationsWithDups = new PermutationsWithDups();
     private Parens parens = new Parens();
+    private PaintFill paintFill = new PaintFill();
 
     @Test
     void TestTripleStep() {
@@ -111,5 +114,14 @@ class DynamicProgrammingTests {
         String expected1 = "[()()(), ()(()), (()()), (())(), ((()))]";
         String result1 = parens.generateParens(3).toString();
         Assertions.assertEquals(expected1,result1);
+    }
+
+    @Test
+    void PaintFill() {
+        PixelColor[][] screen = paintFill.getTestScreen();
+        String beforeFill = paintFill.screenToString(screen);
+        paintFill.paintFill(screen, 2, 3, PixelColor.Blue);
+        String afterFill = paintFill.screenToString(screen);
+        Assertions.assertNotEquals(beforeFill, afterFill);
     }
 }

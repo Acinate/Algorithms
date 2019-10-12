@@ -1,5 +1,6 @@
 package test.java;
 
+import algorithms.dynamic_programming.Coins.Coins;
 import algorithms.dynamic_programming.MagicIndex.MagicIndex;
 import algorithms.dynamic_programming.PaintFill.PaintFill;
 import algorithms.dynamic_programming.PaintFill.PixelColor;
@@ -32,6 +33,7 @@ class DynamicProgrammingTests {
     private PermutationsWithDups permutationsWithDups = new PermutationsWithDups();
     private Parens parens = new Parens();
     private PaintFill paintFill = new PaintFill();
+    private Coins coins = new Coins();
 
     @Test
     void TestTripleStep() {
@@ -117,11 +119,20 @@ class DynamicProgrammingTests {
     }
 
     @Test
-    void PaintFill() {
+    void TestPaintFill() {
         PixelColor[][] screen = paintFill.getTestScreen();
         String beforeFill = paintFill.screenToString(screen);
         paintFill.paintFill(screen, 2, 3, PixelColor.Blue);
         String afterFill = paintFill.screenToString(screen);
         Assertions.assertNotEquals(beforeFill, afterFill);
+    }
+
+    @Test
+    void TestCoins() {
+        Assertions.assertEquals(1, coins.makeChange(1));
+        Assertions.assertEquals(2, coins.makeChange(5));
+        Assertions.assertEquals(4, coins.makeChange(10));
+        Assertions.assertEquals(242, coins.makeChange(100));
+
     }
 }

@@ -58,3 +58,6 @@ structure where each call expands out to four or more calls.
 
 The base case of our recursion is the fully reduced statement. For example, makeChange(50 using 0 quarters, 5 dimes
 ) is fully reduced to 1, since 5 dimes equals 50 cents.
+
+To make this algorithm even more efficient, we can store previous computed values. We'll need to store a mapping from
+each pair (amount, index) to the precomputed result.
